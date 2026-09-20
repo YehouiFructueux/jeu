@@ -1,0 +1,521 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #ff758c,
+        #ff7eb3,
+        #c77dff
+    );
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   PETITS CŒURS DÉCORATIFS
+========================= */
+
+body::before,
+body::after {
+    content: "❤";
+    position: fixed;
+    font-size: 120px;
+    opacity: 0.08;
+    color: white;
+    animation: flotter 6s infinite ease-in-out;
+}
+
+body::before {
+    top: 5%;
+    left: 5%;
+}
+
+body::after {
+    bottom: 5%;
+    right: 5%;
+    animation-delay: 2s;
+}
+
+
+@keyframes flotter {
+
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(10deg);
+    }
+
+}
+
+
+/* =========================
+   INTERFACES
+========================= */
+
+.interface {
+
+    display: none;
+
+    width: 90%;
+    max-width: 620px;
+
+    padding: 45px 30px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.6);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.20);
+
+    animation: apparition 0.7s ease;
+
+}
+
+.interface.active {
+    display: block;
+}
+
+
+@keyframes apparition {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================
+   CŒUR PRINCIPAL
+========================= */
+
+.coeur {
+
+    font-size: 75px;
+
+    margin-bottom: 20px;
+
+    filter: drop-shadow(
+        0 5px 10px rgba(214, 51, 108, 0.3)
+    );
+
+    animation: battre 1.2s infinite;
+
+}
+
+
+@keyframes battre {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+
+}
+
+
+/* =========================
+   TEXTES
+========================= */
+
+h1 {
+
+    font-size: 32px;
+
+    color: #c9184a;
+
+    margin-bottom: 20px;
+
+}
+
+.question {
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    color: #333;
+
+    margin-bottom: 35px;
+
+}
+
+p {
+
+    color: #444;
+
+    margin-bottom: 15px;
+
+}
+
+
+/* =========================
+   BOUTONS
+========================= */
+
+.boutons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    position: relative;
+
+}
+
+
+button {
+
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 50px;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #ff4d6d,
+        #c9184a
+    );
+
+    box-shadow:
+        0 8px 20px rgba(201, 24, 74, 0.25);
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+
+}
+
+
+button:hover {
+
+    transform: translateY(-4px) scale(1.04);
+
+    box-shadow:
+        0 12px 25px rgba(201, 24, 74, 0.35);
+
+}
+
+
+button:active {
+
+    transform: scale(0.95);
+
+}
+
+
+/* =========================
+   BOUTON NON
+========================= */
+
+#non {
+
+    background: #6c757d;
+
+}
+
+
+/* =========================
+   LETTRE
+========================= */
+
+.lettre {
+
+    background: linear-gradient(
+        135deg,
+        #fff0f5,
+        #ffe5ec
+    );
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+
+    border-left: 5px solid #ff4d6d;
+
+    box-shadow:
+        inset 0 0 20px rgba(255, 77, 109, 0.05);
+
+}
+
+
+.lettre p {
+
+    font-size: 16px;
+
+}
+
+
+/* =========================
+   JOURS
+========================= */
+
+.jours {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 15px;
+
+    margin-top: 30px;
+
+}
+
+
+.jours button {
+
+    background: white;
+
+    color: #c9184a;
+
+    border: 2px solid #ffb3c1;
+
+    box-shadow: none;
+
+}
+
+
+.jours button:hover {
+
+    background: #fff0f5;
+
+}
+
+
+.jours #samedi {
+
+    background: linear-gradient(
+        135deg,
+        #ff4d6d,
+        #c9184a
+    );
+
+    color: white;
+
+    border: none;
+
+}
+
+
+/* =========================
+   HEURE
+========================= */
+
+#heure {
+
+    font-size: 28px;
+
+    padding: 20px 45px;
+
+    margin-top: 25px;
+
+}
+
+
+/* =========================
+   RÉCAPITULATIF
+========================= */
+
+.recapitulatif {
+
+    position: relative;
+
+    background: linear-gradient(
+        135deg,
+        #fff0f5,
+        #ffe5ec
+    );
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    font-size: 21px;
+
+    line-height: 1.8;
+
+    margin: 25px 0;
+
+    border: 2px solid #ffb3c1;
+
+}
+
+
+.recapitulatif strong {
+
+    color: #c9184a;
+
+    font-size: 26px;
+
+}
+
+
+.fin {
+
+    color: #c9184a;
+
+    font-size: 19px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================
+   CŒURS QUI TOMBENT
+========================= */
+
+.coeur-final {
+
+    position: fixed;
+
+    top: -50px;
+
+    font-size: 25px;
+
+    pointer-events: none;
+
+    animation: tomber 4s linear forwards;
+
+}
+
+
+@keyframes tomber {
+
+    0% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .interface {
+
+        padding: 35px 20px;
+
+        border-radius: 25px;
+
+    }
+
+    h1 {
+
+        font-size: 26px;
+
+    }
+
+    .question {
+
+        font-size: 22px;
+
+    }
+
+    .coeur {
+
+        font-size: 60px;
+
+    }
+
+    .jours {
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 10px;
+
+    }
+
+    button {
+
+        padding: 13px 20px;
+
+        font-size: 15px;
+
+    }
+
+}
+
+#message-non{
+    height: 30px;
+    margin-top: 20px;
+    color: #c9184a;
+    font-weight: bold;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+#message-non-visible {
+    opacity: 1;
+}
+#non {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: none;
+}
